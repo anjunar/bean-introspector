@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.bitvale</groupId>
+    <groupId>de.anjunar</groupId>
     <artifactId>bean-introspector</artifactId>
-    <version>1.01</version>
+    <version>1.0</version>
 
     <name>Bean Introspector</name>
     <description>Bean Introspector</description>
@@ -28,7 +28,7 @@
         <developer>
             <name>Patrick Bittner</name>
             <email>patrick.bittner@hamburg.de</email>
-            <organization>Bit Vale</organization>
+            <organization>Anjunar</organization>
         </developer>
     </developers>
 
