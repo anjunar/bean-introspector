@@ -19,6 +19,8 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -32,6 +34,10 @@ public final class TypeResolver {
     private static final Logger log = LoggerFactory.getLogger(TypeResolver.class);
 
     private static final Cache<Class<?>, ResolvedType<?>> cache = new TCCLCache<>();
+
+    public static List<ResolvedType<?>> filter(Predicate<ResolvedType<?>> predicate) {
+        return cache.asMap().values().stream().filter(predicate).collect(Collectors.toList());
+    }
 
     /**
      * Inspects the given Class to a Resolved Type. The given class is mostly a real Class.

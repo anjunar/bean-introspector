@@ -111,6 +111,13 @@ public class BeanProperty<X, V> extends AbstractRawResolvedAnnotatedElement impl
     }
 
     @Override
+    public boolean isDirect() {
+        return field
+                .map(field -> field.getDeclaringClass().equals(model.getType().getRawType()))
+                .orElse(false);
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hashCode(model, key, getType());
     }

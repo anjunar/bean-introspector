@@ -60,4 +60,15 @@ public class TestCase {
         assertNotNull(setFirstName);
 
     }
+
+    @Test
+    public void testInterfaces() {
+
+        ResolvedType<Person> resolvedType = TypeResolver.resolve(Person.class);
+
+        ResolvedMethod<?> getFirstName = resolvedType.find("getFirstName");
+
+
+
+    }
 }

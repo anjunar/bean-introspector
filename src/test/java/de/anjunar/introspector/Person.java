@@ -3,7 +3,7 @@ package de.anjunar.introspector;
 import javax.validation.constraints.Min;
 import java.time.LocalDate;
 
-public class Person extends Identity {
+public class Person extends Identity implements Name, Birthdate {
 
     @Min(3)
     private String firstName;
@@ -13,10 +13,12 @@ public class Person extends Identity {
 
     private LocalDate birthdate;
 
+    @Override
     public String getFirstName() {
         return firstName;
     }
 
+    @Override
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

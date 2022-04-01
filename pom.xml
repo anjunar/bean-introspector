@@ -6,7 +6,7 @@
 
     <groupId>de.anjunar</groupId>
     <artifactId>bean-introspector</artifactId>
-    <version>1.0</version>
+    <version>1.03</version>
 
     <name>Bean Introspector</name>
     <description>Bean Introspector</description>

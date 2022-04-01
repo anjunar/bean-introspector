@@ -17,4 +17,6 @@ public interface MetaProperty<B, K, V> extends BiConsumer<B, V>, Function<B, V> 
     TypeToken<V> getType();
 
     boolean isReadOnly();
+
+    boolean isDirect();
 }

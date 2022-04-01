@@ -56,7 +56,7 @@ public final class Reflections {
                         methodMap.add(declaringClass, classMethod);
                     }
                 }
-                for (final Class<?> declaringInterface : declaringClass.getInterfaces()) {
+                for (final Class<?> declaringInterface : allInterfaces(declaringClass.getInterfaces())) {
                     CtClass ctInterface = pool.get(declaringInterface.getName());
                     CtMethod[] ctInterfaceDeclaredMethods = ctInterface.getDeclaredMethods();
                     Method[] interfaceMethods = declaringInterface.getDeclaredMethods();
@@ -78,6 +78,15 @@ public final class Reflections {
             log.error(e.getLocalizedMessage());
         }
         return result;
+    }
+
+    private static List<Class<?>> allInterfaces(Class<?>[] classes) {
+        List<Class<?>> interfaces = new ArrayList<>();
+        interfaces.addAll(Arrays.asList(classes));
+        for (Class<?> clazz : classes) {
+            interfaces.addAll(allInterfaces(clazz.getInterfaces()));
+        }
+        return interfaces;
     }
 
     private static MethodSignature buildMethodSignature(List<Class<?>> hierarchy, Method classMethod) {
